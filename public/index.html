@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Secure File Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Cloudinary Upload widget script -->
+    <script
+      src="https://upload-widget.cloudinary.com/latest/global/all.js"
+      type="text/javascript"
+    ></script>
+    <div class="page">
+      <header class="header">
+        <h1>Block Malware at Upload Time</h1>
+        <p>
+          Upload files safely. Every file is scanned for malware with Perception
+          Point.
+        </p>
+      </header>
+
+      <main class="main">
+        <section class="upload-card">
+          <h2>Secure Upload</h2>
+          <p>Select any file. Images, videos, or documents.</p>
+          <button id="upload_button" class="btn-primary" type="button">
+            Upload a file
+          </button>
+          <p class="helper-text">
+            We will scan your upload for malware before use.
+          </p>
+        </section>
+
+        <section class="uploads-list">
+          <h2>Recent uploads</h2>
+          <div id="uploads_container" class="uploads-container">
+            <p class="empty-state">
+              No uploads yet. Your files will show here.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Powered by Cloudinary and Perception Point</p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
