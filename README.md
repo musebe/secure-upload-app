@@ -33,5 +33,5 @@ The backend uses Express, and the app can be deployed to Vercel.
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/secure-upload-app.git
+git clone https://github.com/musebe/secure-upload-app
 cd secure-upload-app
