@@ -1,15 +1,14 @@
-// server.js (CommonJS)
+// server.js (CommonJS, Vercel-friendly)
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { v2: cloudinary } = require('cloudinary');
 
-// load .env
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // parse JSON bodies (for webhook)
 app.use(express.json());
@@ -24,10 +23,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// serve static files locally (Vercel will use /public instead,
-// but this is nice for local dev)
-const rootDir = __dirname;
-app.use(express.static(rootDir));
+// local static (optional, mainly for dev)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // simple health check
 app.get('/api/health', (req, res) => {
@@ -77,6 +74,5 @@ app.post('/api/cloudinary-webhook', (req, res) => {
   res.status(200).json({ received: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// *** IMPORTANT for Vercel ***
+module.exports = app;
